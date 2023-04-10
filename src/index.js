@@ -51,7 +51,7 @@ class ProgressBar extends Component {
   };
 
   animateOnScroll = (shouldUpdate = false) => {
-    if ((!this.state.animate && contentInView(this.myRef.current)) || shouldUpdate) {
+    if ((!this.state.animate && contentInView(this.myRef?.current)) || shouldUpdate) {
       this.scrollRef && this.scrollRef.current && this.scrollRef.current.removeEventListener(
         'scroll',
         this.animateOnScroll
@@ -61,11 +61,11 @@ class ProgressBar extends Component {
         animate: true,
       });
       !this.props.rect
-        ? this.trackRef.current.style.setProperty(
+        ? this.trackRef?.current.style.setProperty(
             '--level',
             getPercentLevel(this.props.percentage)
           )
-        : this.rectTrackRef.current.style.setProperty(
+        : this.rectTrackRef?.current.style.setProperty(
             '--rectLevel',
             `${sanitizePercentage(this.props.percentage)}%`
           );
